@@ -27,67 +27,8 @@ void print_family(person *p, int generation);
 void free_family(person *p);
 char random_allele();
 
-int main(void)
-{
-    srand(time(0)); // time(0) returns the current time in seconds since the Unix epoch.
-                    // srand() is used to generate random numbers in C programming.
-                    // srand(time(0)) will initialize the random number generator with a random value.
-
-    person *p = create_family(GENERATIONS); // Create a new family with 3 generations
-                                            // the return value of create_family is a pointer to a person.
-
-    // Print family tree of blood types
-    print_family(p, 0); 
-
-    // Free memory
-    free_family(p);
-}
 
 // Create a new individual with `generations`
-person *create_family(int generations)
-{
-    // TODO: Allocate memory for new person
-    person *new_person = malloc(sizeof(person));
-    if (new_person == NULL)
-    {
-        fprintf(stderr, "Memory allocation failed.\n");
-        exit(1);
-    }
-
-    // If there are still generations left to create
-    if (generations > 1)
-    {
-        // Create two new parents for current person by recursively calling create_family
-        person *parent0 = create_family(generations - 1);
-        person *parent1 = create_family(generations - 1);
-
-        // TODO: Set parent pointers for current person
-        new_person->parents[0] = parent0;
-        new_person->parents[1] = parent1;
-
-        // TODO: Randomly assign current person's alleles based on the alleles of their parents
-        // Choose one allele from each parent
-        int allele0 = rand() % 2;
-        int allele1 = rand() % 2;
-        new_person->alleles[0] = parent0->alleles[allele0];
-        new_person->alleles[1] = parent1->alleles[allele1];
-    }
-
-    // If there are no generations left to create
-    else
-    {
-        // TODO: Set parent pointers to NULL
-        new_person->parents[0] = NULL;
-        new_person->parents[1] = NULL;
-
-        // TODO: Randomly assign alleles
-        new_person->alleles[0] = random_allele();
-        new_person->alleles[1] = random_allele();
-    }
-
-    // TODO: Return newly created person
-    return new_person;
-}
 
 // Free `p` and all ancestors of `p`.
 void free_family(person *p)
@@ -160,4 +101,65 @@ char random_allele()
     {
         return 'O';
     }
+}
+
+person *create_family(int generations)
+{
+    // TODO: Allocate memory for new person
+    person *new_person = malloc(sizeof(person));
+    if (new_person == NULL)
+    {
+        fprintf(stderr, "Memory allocation failed.\n");
+        exit(1);
+    }
+
+    // If there are still generations left to create
+    if (generations > 1)
+    {
+        // Create two new parents for current person by recursively calling create_family
+        person *parent0 = create_family(generations - 1);
+        person *parent1 = create_family(generations - 1);
+
+        // TODO: Set parent pointers for current person
+        new_person->parents[0] = parent0;
+        new_person->parents[1] = parent1;
+
+        // TODO: Randomly assign current person's alleles based on the alleles of their parents
+        // Choose one allele from each parent
+        int allele0 = rand() % 2;
+        int allele1 = rand() % 2;
+        new_person->alleles[0] = parent0->alleles[allele0];
+        new_person->alleles[1] = parent1->alleles[allele1];
+    }
+
+    // If there are no generations left to create
+    else
+    {
+        // TODO: Set parent pointers to NULL
+        new_person->parents[0] = NULL;
+        new_person->parents[1] = NULL;
+
+        // TODO: Randomly assign alleles
+        new_person->alleles[0] = random_allele();
+        new_person->alleles[1] = random_allele();
+    }
+
+    // TODO: Return newly created person
+    return new_person;
+}
+
+int main(void)
+{
+    srand(time(0)); // time(0) returns the current time in seconds since the Unix epoch.
+                    // srand() is used to generate random numbers in C programming.
+                    // srand(time(0)) will initialize the random number generator with a random value.
+
+    person *p = create_family(GENERATIONS); // Create a new family with 3 generations
+                                            // the return value of create_family is a pointer to a person.
+
+    // Print family tree of blood types
+    print_family(p, 0); 
+
+    // Free memory
+    free_family(p);
 }
