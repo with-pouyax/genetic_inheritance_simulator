@@ -55,7 +55,7 @@ Understanding genetic inheritance is crucial in fields like biology, medicine, a
 Use `gcc` to compile the program:
 
 ```bash
-gcc -o inheritance inheritance.c
+gcc -o inheritance_inheritance.c
 ```
 
 ### Execution
