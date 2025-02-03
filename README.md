@@ -1,6 +1,6 @@
 # Genetic Inheritance Simulator: Blood Type Edition
 
-![Red blood cells](https://i.pinimg.com/736x/fa/ce/cc/facecc22b3e97b92f18751f1b51c9764.jpg)
+![Red blood cells]([https://i.pinimg.com/736x/fa/ce/cc/facecc22b3e97b92f18751f1b51c9764.jpg](https://i.pinimg.com/1200x/4d/96/0a/4d960a78e2ab90eaf4bcd30dd698d6b5.jpg))
 
 ## Overview
 
