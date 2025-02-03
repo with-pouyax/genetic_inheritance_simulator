@@ -1,5 +1,7 @@
 # Genetic Inheritance Simulator: Blood Type Edition
 
+![Red blood cells](https://i.pinimg.com/736x/fa/ce/cc/facecc22b3e97b92f18751f1b51c9764.jpg)
+
 ## Overview
 
 The **Genetic Inheritance Simulator** is a C program designed to model and visualize the inheritance of blood types across multiple generations within a family tree. By simulating how blood type alleles are passed from parents to offspring, this program provides a clear and interactive way to understand the fundamentals of genetic inheritance.
